@@ -1,21 +1,28 @@
 #include <stdio.h>
+#include <math.h>
 /**
- *main - print first 50 fibonacci
- *
- *Return: 0 always.
+ * main - prints the running sum of the fibonacci
+ * sequence
+ * Return: 0
  */
 int main(void)
 {
-	long int i, x = 1, y = 2, sum = 0;
+	long int num;
+	long int num1 = 0;
+	long int num2 = 1;
+	long int fib;
+	long int running_sum = 0;
 
-	for (i = 0; i < 97; i++)
+	for (num = 0; fib <= 4000000; num++)
 	{
-		printf("%lu, ", x);
-		sum = x + y;
-		x = y;
-		y = sum;
-		if (i == 96)
-			printf("%lu\n", x);
+		fib = num1 + num2;
+		if (fib % 2 == 0)
+		{
+			running_sum += fib;
+		}
+		num1 = num2;
+		num2 = fib;
 	}
+	printf("%ld\n", running_sum);
 	return (0);
 }
